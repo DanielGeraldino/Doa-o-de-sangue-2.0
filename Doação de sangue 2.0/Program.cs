@@ -7,10 +7,17 @@ namespace Doação_de_sangue_2._0
     {
         static void Main(string[] args)
         {
-            Paciente p = new Paciente("daniel", 21, "A+", 80.0f, 1.7f);
-            Doador d = new Doador("pedro", 21, "O-", 80.0f, 1.7f);
+            Clinica c = new Clinica(1, "Clinica 1");
 
-            Console.WriteLine(Pessoa.compatibilidadeDeSangue(d.getSangue(), p.getSangue()));
+            Paciente p = new Paciente("1", "daniel", 21, "A-", 80.0f, 1.7f);
+            Doador d = new Doador("2", "pedro", 21, "A-", 80.0f, 1.7f);
+
+            c.addDoador(d);
+            c.addPaciente(p);
+
+            c.listaPacientes();
+
+            Console.WriteLine(c.doarSangue("1", "2"));
             
         }
     }

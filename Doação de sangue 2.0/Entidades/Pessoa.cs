@@ -6,19 +6,26 @@ namespace Doação_de_sangue_2._0.Entidades
 {
     class Pessoa
     {
+        protected string id;
         protected string nome;
         protected int idade;
         protected float peso;
         protected float altura;
         protected Sangue sangue { get; }
 
-        public Pessoa(string nome, int idade, string sangue, float peso, float altura)
+        public Pessoa(string id, string nome, int idade, string sangue, float peso, float altura)
         {
+            this.id = id;
             this.nome = nome;
             this.idade = idade;
             this.sangue = new Sangue(sangue);
             this.peso = peso;
             this.altura = altura;
+        }
+
+        public string getId()
+        {
+            return this.id;
         }
 
         public string getNome()

@@ -88,7 +88,7 @@ namespace Doação_de_sangue_2._0.Entidades
 
             for (int i = 0; i < listaPossiveisTiposSanguineos.Length; i++)
             {
-                if (listaPossiveisTiposSanguineos[i] == tipoDoPaciente)
+                if (listaPossiveisTiposSanguineos[i] == tipoDoDoador)
                 {
                     return true;
                 }
