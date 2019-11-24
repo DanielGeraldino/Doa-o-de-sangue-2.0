@@ -48,6 +48,16 @@ namespace Doação_de_sangue_2._0.Entidades
             return sangue.ToString();
         }
 
+        public float getPeso()
+        {
+            return peso;
+        }
+
+        public float getAltura()
+        {
+            return altura;
+        }
+
         public static bool compatibilidadeDeSangue(string tDoador, string tPaciente)
         {
             return new Sangue().verificaCompatibilidade(tDoador, tPaciente);
