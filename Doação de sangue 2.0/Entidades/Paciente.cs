@@ -11,5 +11,6 @@ namespace Doação_de_sangue_2._0.Entidades
         {
 
         }
+
     }
 }

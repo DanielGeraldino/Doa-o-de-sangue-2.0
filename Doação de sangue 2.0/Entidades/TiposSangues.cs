@@ -8,6 +8,11 @@ namespace Doação_de_sangue_2._0.Entidades
     {
         public static String[] tipos = {"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" };
 
+        public TiposSangues()
+        {
+
+        }
+
         public static bool validaTipo(string tipo)
         {
             if(procuraTipo(tipo) != -1)
@@ -22,7 +27,7 @@ namespace Doação_de_sangue_2._0.Entidades
         {
             for(int i = 0; i < tipos.Length; i++)
             {
-                if (tipos.Equals(t))
+                if (tipos[i] == t)
                 {
                     return i;
                 }

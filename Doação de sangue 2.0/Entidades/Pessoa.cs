@@ -10,7 +10,7 @@ namespace Doação_de_sangue_2._0.Entidades
         protected int idade;
         protected float peso;
         protected float altura;
-        protected Sangue sangue;
+        protected Sangue sangue { get; }
 
         public Pessoa(string nome, int idade, string sangue, float peso, float altura)
         {
@@ -29,6 +29,21 @@ namespace Doação_de_sangue_2._0.Entidades
         public int getIdade()
         {
             return this.idade;
+        }
+
+        public string[] sangueCompativeis()
+        {
+            return sangue.PodeRecebeDe(sangue.ToString());
+        }
+
+        public string getSangue()
+        {
+            return sangue.ToString();
+        }
+
+        public static bool compatibilidadeDeSangue(string tDoador, string tPaciente)
+        {
+            return new Sangue().verificaCompatibilidade(tDoador, tPaciente);
         }
 
     }
