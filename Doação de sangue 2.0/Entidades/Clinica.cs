@@ -56,22 +56,14 @@ namespace Doação_de_sangue_2._0.Entidades
             return false;
         }
 
-        public void listaPacientes()
+        public List<Paciente> listaPacientes()
         {
-            foreach(var p in pacientes)
-            {
-                String paciente = $"Paciente: {p.getNome()}, Idade: {p.getIdade()}, Sangue: {p.getSangue()}";
-                Console.WriteLine(paciente);
-            }
+            return pacientes;
         }
 
-        public void listaDoadores()
+        public List<Doador> listaDoadores()
         {
-            foreach(var d in doadores)
-            {
-                String doadores = $"Doador: {d.getNome()}, Idade: {d.getIdade()}, Sangue: {d.getSangue()}";
-                Console.WriteLine(doadores);
-            }
+            return doadores;
         }
     }
 }
