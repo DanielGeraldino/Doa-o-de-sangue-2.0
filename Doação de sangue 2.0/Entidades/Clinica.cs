@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Doação_de_sangue_2._0.Conexao;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,21 +9,22 @@ namespace Doação_de_sangue_2._0.Entidades
     {
         public int idClinica { get; private set; }
         public string nome { get; private set; }
-        private List<Doador> doadores;
-        private List<Paciente> pacientes;
+        private List<Doador> doadores = new List<Doador>();
+        private List<Paciente> pacientes = new List<Paciente>();
 
         public Clinica(int id, string nome)
         {
             this.idClinica = id;
             this.nome = nome;
-            doadores = new List<Doador>();
-            pacientes = new List<Paciente>();
+            doadores = DadoDoador.LerDados();
+            pacientes = DadoPaciente.LerDados();
         }
 
         public void addDoador(Doador d)
         {
             if(d != null)
             {
+                DadoDoador.SalvarDado(d);
                 doadores.Add(d);
             }
         }
@@ -31,6 +33,7 @@ namespace Doação_de_sangue_2._0.Entidades
         {
             if(p != null)
             {
+                DadoPaciente.SalvarDado(p);
                 pacientes.Add(p);
             }
         }
@@ -57,7 +60,17 @@ namespace Doação_de_sangue_2._0.Entidades
         {
             foreach(var p in pacientes)
             {
-                Console.WriteLine(p.ToString());
+                String paciente = $"Paciente: {p.getNome()}, Idade: {p.getIdade()}, Sangue: {p.getSangue()}";
+                Console.WriteLine(paciente);
+            }
+        }
+
+        public void listaDoadores()
+        {
+            foreach(var d in doadores)
+            {
+                String doadores = $"Doador: {d.getNome()}, Idade: {d.getIdade()}, Sangue: {d.getSangue()}";
+                Console.WriteLine(doadores);
             }
         }
     }
