@@ -50,6 +50,10 @@ namespace Doação_de_sangue_2._0.Entidades
                 doadores.Remove(doador);
                 pacientes.Remove(paciente);
 
+                string texto = $"Sangue do {doador.getNome()}(Tipo: {doador.getSangue()}) doado para {paciente.getNome()}(tipo: {paciente.getSangue()})";
+
+                DadoDoacao.SalvarDado(paciente, doador, texto);
+
                 return true;
             }
 
