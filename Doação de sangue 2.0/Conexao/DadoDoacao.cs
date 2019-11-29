@@ -36,7 +36,7 @@ namespace Doação_de_sangue_2._0.Conexao
                     }
                 }
 
-                throw new Exception("Nenhum dado encontrado!");
+                throw new Exception("Nenhuma doação encotrada!");
 
             }
             catch (Exception e)

@@ -17,11 +17,22 @@ namespace Doação_de_sangue_2._0.Entidades
         public Sangue(string tipo)
         {
             //tiposSangues = new TiposSangues();
-
-            if (TiposSangues.validaTipo(tipo))
+            try
             {
-                this.tipo = tipo; 
+                if (TiposSangues.validaTipo(tipo))
+                {
+                    this.tipo = tipo;
+                }
+                else
+                {
+                    throw new Exception("Tipo sanguineo invalido!");
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
         }
 
         public override string ToString()

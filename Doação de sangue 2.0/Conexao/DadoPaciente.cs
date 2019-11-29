@@ -19,31 +19,49 @@ namespace Doação_de_sangue_2._0.Conexao
 
         public static List<Paciente> LerDados()
         {
-            if (!File.Exists(DADOS_PACIENTES))
+            try
             {
-                Directory.CreateDirectory(PASTA_DADOS);
-                File.CreateText(DADOS_PACIENTES).Close();
+                if (File.Exists(DADOS_PACIENTES))
+                {
+                    List<Paciente> dadosPacientes = File.ReadAllLines(DADOS_PACIENTES)
+                        .Select(a => a.Split(";"))
+                        .Select(p => new Paciente(p[0], p[1], int.Parse(p[2]), p[3], float.Parse(p[4]), float.Parse(p[5])))
+                        .ToList();
 
-                Console.WriteLine("Criando Arq");
-            }
+                    return dadosPacientes;
+                }
 
-            List<Paciente> dadosPacientes = File.ReadAllLines(DADOS_PACIENTES)
-                .Select(a => a.Split(";"))
-                .Select(p => new Paciente(p[0], p[1], int.Parse(p[2]), p[3], float.Parse(p[4]), float.Parse(p[5])))
-                .ToList();
+                throw new Exception("Nenhum paciente encontrado.");
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }  
 
-            return dadosPacientes;
         }
 
         public static void SalvarDado(Pessoa p)
         {
-            if(p != null)
+            try
             {
-                using(StreamWriter sw = File.AppendText(DADOS_PACIENTES))
+                if (!File.Exists(DADOS_PACIENTES))
                 {
-                    sw.WriteLine($"{p.getId()};{p.getNome()};{p.getIdade()};{p.getSangue()};{p.getPeso()};{p.getAltura()}");
+                    Directory.CreateDirectory(PASTA_DADOS);
+                    File.CreateText(DADOS_PACIENTES).Close();
                 }
+
+                if (p != null)
+                {
+                    using (StreamWriter sw = File.AppendText(DADOS_PACIENTES))
+                    {
+                        sw.WriteLine($"{p.getId()};{p.getNome()};{p.getIdade()};{p.getSangue()};{p.getPeso()};{p.getAltura()}");
+                    }
+                }
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
+            
         }
     }
 }

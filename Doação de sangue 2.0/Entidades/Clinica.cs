@@ -42,12 +42,17 @@ namespace Doação_de_sangue_2._0.Entidades
             
         }
 
-        public void addPaciente(Paciente p)
+        public bool addPaciente(Paciente p)
         {
             if(p != null)
             {
                 DadoPaciente.SalvarDado(p);
                 pacientes.Add(p);
+                return true;
+            } 
+            else
+            {
+                return false;
             }
         }
 
