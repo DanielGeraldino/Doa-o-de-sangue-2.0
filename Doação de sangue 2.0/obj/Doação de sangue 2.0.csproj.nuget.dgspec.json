@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danie\\Documents\\Projetos\\doacao_sangue\\Doação de sangue 2.0\\Doação de sangue 2.0\\Doação de sangue 2.0.csproj": {}
+    "C:\\Users\\danie\\Documents\\Projetos\\p\\Doa-o-de-sangue-2.0\\Doação de sangue 2.0\\Doação de sangue 2.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danie\\Documents\\Projetos\\doacao_sangue\\Doação de sangue 2.0\\Doação de sangue 2.0\\Doação de sangue 2.0.csproj": {
+    "C:\\Users\\danie\\Documents\\Projetos\\p\\Doa-o-de-sangue-2.0\\Doação de sangue 2.0\\Doação de sangue 2.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danie\\Documents\\Projetos\\doacao_sangue\\Doação de sangue 2.0\\Doação de sangue 2.0\\Doação de sangue 2.0.csproj",
+        "projectUniqueName": "C:\\Users\\danie\\Documents\\Projetos\\p\\Doa-o-de-sangue-2.0\\Doação de sangue 2.0\\Doação de sangue 2.0.csproj",
         "projectName": "Doação de sangue 2.0",
-        "projectPath": "C:\\Users\\danie\\Documents\\Projetos\\doacao_sangue\\Doação de sangue 2.0\\Doação de sangue 2.0\\Doação de sangue 2.0.csproj",
+        "projectPath": "C:\\Users\\danie\\Documents\\Projetos\\p\\Doa-o-de-sangue-2.0\\Doação de sangue 2.0\\Doação de sangue 2.0.csproj",
         "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danie\\Documents\\Projetos\\doacao_sangue\\Doação de sangue 2.0\\Doação de sangue 2.0\\obj\\",
+        "outputPath": "C:\\Users\\danie\\Documents\\Projetos\\p\\Doa-o-de-sangue-2.0\\Doação de sangue 2.0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",

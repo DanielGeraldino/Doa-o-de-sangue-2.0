@@ -17,33 +17,32 @@ namespace Doação_de_sangue_2._0.Conexao
 
         public static List<string> LerDados()
         {
-            if (!File.Exists(DADOS_DOACAO))
-            {
-                Directory.CreateDirectory(PASTA_DADOS);
-                File.CreateText(DADOS_DOACAO).Close();
-            }
-
             try
             {
-
-                using (StreamReader sr = new StreamReader(DADOS_DOACAO))
+                if (File.Exists(DADOS_DOACAO))
                 {
-
-                    List<string> linhas = new List<string>();
-                    string linha = "";
-
-                    while ((linha = sr.ReadLine()) != null)
+                    using (StreamReader sr = new StreamReader(DADOS_DOACAO))
                     {
-                        linhas.Add(linha);
-                    }
 
-                    return linhas;
+                        List<string> linhas = new List<string>();
+                        string linha = "";
+
+                        while ((linha = sr.ReadLine()) != null)
+                        {
+                            linhas.Add(linha);
+                        }
+
+                        return linhas;
+                    }
                 }
+
+                throw new Exception("Nenhum dado encontrado!");
+
             }
             catch (Exception e)
             {
 
-                Console.WriteLine("Erro: " + e);
+                Console.WriteLine("Erro: " + e.Message);
                 return null;
 
             }
@@ -53,10 +52,15 @@ namespace Doação_de_sangue_2._0.Conexao
         {
             try
             {
+                if (!File.Exists(DADOS_DOACAO))
+                {
+                    Directory.CreateDirectory(PASTA_DADOS);
+                    File.CreateText(DADOS_DOACAO).Close();
+                }
 
                 using (StreamWriter sw = File.AppendText(DADOS_DOACAO))
                 {
-                    sw.WriteLine(DateTime.Now + " " + texto);
+                    sw.WriteLine(DateTime.Now + ": " + texto);
                 }
             }
             catch (Exception e)

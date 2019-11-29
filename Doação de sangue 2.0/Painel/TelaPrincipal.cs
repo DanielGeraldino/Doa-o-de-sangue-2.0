@@ -1,4 +1,5 @@
-﻿using Doação_de_sangue_2._0.Entidades;
+﻿using Doação_de_sangue_2._0.Conexao;
+using Doação_de_sangue_2._0.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,14 +30,15 @@ namespace Doação_de_sangue_2._0.Painel
             Console.WriteLine("[7] - Deseja sair\n");
             Console.WriteLine("----------------------------------");
 
-            Console.Write("Escolha: ");
+            Console.Write("\nEscolha: ");
+            escolha = int.Parse(Console.ReadLine());
 
             if(escolha > 0 && escolha <= 7)
                 return escolha;
             return -1;
         }
 
-        public Doador mCadastrarDoador()
+        public void mCadastrarDoador()
         {
             Console.Clear();
             Console.WriteLine("Cadastrando doador:");
@@ -63,10 +65,10 @@ namespace Doação_de_sangue_2._0.Painel
 
             Console.WriteLine("----------------------------------");
 
-            return new Doador(id, nome, idade, tipo, peso, altura);
+            clinica.addDoador(new Doador(id, nome, idade, tipo, peso, altura));
         }
 
-        public Paciente mCadastrarPaciente()
+        public void mCadastrarPaciente()
         {
             Console.Clear();
             Console.WriteLine("Cadastrando paciente:");
@@ -93,7 +95,7 @@ namespace Doação_de_sangue_2._0.Painel
 
             Console.WriteLine("----------------------------------");
 
-            return new Paciente(id, nome, idade, tipo, peso, altura);
+            clinica.addPaciente(new Paciente(id, nome, idade, tipo, peso, altura));
         }
 
         public void mRealizaDoacao()
@@ -153,9 +155,16 @@ namespace Doação_de_sangue_2._0.Painel
         public void imprimirDoaçoes()
         {
             Console.Clear();
-            Console.WriteLine("----------------------------------");
+            Console.WriteLine("----------------------------------\n");
             //ComunicaoArquivo.leia("registro_doacoes.txt");
-            Console.WriteLine("----------------------------------");
+            List<string> dados = DadoDoacao.LerDados();
+            
+            foreach(string linha in dados)
+            {
+                Console.WriteLine(linha);
+            }
+
+            Console.WriteLine("\n----------------------------------");
             Console.Write("Digite entre para voltar.");
             Console.ReadLine();
         }

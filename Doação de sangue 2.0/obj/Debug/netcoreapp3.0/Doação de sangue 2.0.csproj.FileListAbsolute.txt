@@ -9,3 +9,14 @@ C:\Users\danie\Documents\Projetos\doacao_sangue\Doação de sangue 2.0\Doação 
 C:\Users\danie\Documents\Projetos\doacao_sangue\Doação de sangue 2.0\Doação de sangue 2.0\obj\Debug\netcoreapp3.0\Doação de sangue 2.0.AssemblyInfo.cs
 C:\Users\danie\Documents\Projetos\doacao_sangue\Doação de sangue 2.0\Doação de sangue 2.0\obj\Debug\netcoreapp3.0\Doação de sangue 2.0.dll
 C:\Users\danie\Documents\Projetos\doacao_sangue\Doação de sangue 2.0\Doação de sangue 2.0\obj\Debug\netcoreapp3.0\Doação de sangue 2.0.pdb
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\bin\Debug\netcoreapp3.0\Doação de sangue 2.0.exe
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\bin\Debug\netcoreapp3.0\Doação de sangue 2.0.deps.json
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\bin\Debug\netcoreapp3.0\Doação de sangue 2.0.runtimeconfig.json
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\bin\Debug\netcoreapp3.0\Doação de sangue 2.0.runtimeconfig.dev.json
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\bin\Debug\netcoreapp3.0\Doação de sangue 2.0.dll
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\bin\Debug\netcoreapp3.0\Doação de sangue 2.0.pdb
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\obj\Debug\netcoreapp3.0\Doação de sangue 2.0.csprojAssemblyReference.cache
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\obj\Debug\netcoreapp3.0\Doação de sangue 2.0.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\obj\Debug\netcoreapp3.0\Doação de sangue 2.0.AssemblyInfo.cs
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\obj\Debug\netcoreapp3.0\Doação de sangue 2.0.dll
+C:\Users\danie\Documents\Projetos\p\Doa-o-de-sangue-2.0\Doação de sangue 2.0\obj\Debug\netcoreapp3.0\Doação de sangue 2.0.pdb
