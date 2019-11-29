@@ -20,13 +20,26 @@ namespace Doação_de_sangue_2._0.Entidades
             pacientes = DadoPaciente.LerDados();
         }
 
-        public void addDoador(Doador d)
+        public bool addDoador(Doador d)
         {
-            if(d != null)
+            try
             {
-                DadoDoador.SalvarDado(d);
-                doadores.Add(d);
+                if (d.podeDoar())
+                {
+                    DadoDoador.SalvarDado(d);
+                    doadores.Add(d);
+                    return true;
+                } else
+                {
+                    throw new ClinicaException("Doador não pode realizar doações");              
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            
         }
 
         public void addPaciente(Paciente p)
@@ -40,24 +53,35 @@ namespace Doação_de_sangue_2._0.Entidades
 
         public bool doarSangue(string idPaciente, string idDoador)
         {
-            
-            Doador doador = doadores.Find(x => x.getId() == idDoador);
-            Paciente paciente = pacientes.Find(x => x.getId() == idPaciente);
-                    
-            if (doador.podeDoar() && Paciente.compatibilidadeDeSangue(doador.getSangue(), paciente.getSangue()))
+            try
             {
+                Doador doador = doadores.Find(x => x.getId() == idDoador);
+                Paciente paciente = pacientes.Find(x => x.getId() == idPaciente);
 
-                doadores.Remove(doador);
-                pacientes.Remove(paciente);
+                if (Paciente.compatibilidadeDeSangue(doador.getSangue(), paciente.getSangue()))
+                {
 
-                string texto = $"Sangue do {doador.getNome()}(Tipo: {doador.getSangue()}) doado para {paciente.getNome()}(tipo: {paciente.getSangue()})";
+                    doadores.Remove(doador);
+                    pacientes.Remove(paciente);
 
-                DadoDoacao.SalvarDado(paciente, doador, texto);
+                    string texto = $"Sangue do {doador.getNome()}(Tipo: {doador.getSangue()}) doado para {paciente.getNome()}(tipo: {paciente.getSangue()})";
 
-                return true;
+                    DadoDoacao.SalvarDado(paciente, doador, texto);
+
+                    return true;
+                }
+
+                throw new ClinicaException("Sangue incompatíveis!");
+
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                /*string texto = $"Sangue do {doador.getNome()}(Tipo: {doador.getSangue()}) não pode ser doado para {paciente.getNome()}(tipo: {paciente.getSangue()})";
+
+                DadoDoacao.SalvarDado(paciente, doador, texto);*/
+                return false;
             }
-
-            return false;
+                                    
         }
 
         public List<Paciente> listaPacientes()

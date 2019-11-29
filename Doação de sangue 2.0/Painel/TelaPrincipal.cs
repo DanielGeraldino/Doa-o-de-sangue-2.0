@@ -65,7 +65,8 @@ namespace Doação_de_sangue_2._0.Painel
 
             Console.WriteLine("----------------------------------");
 
-            clinica.addDoador(new Doador(id, nome, idade, tipo, peso, altura));
+            Console.WriteLine("\nDoador cadastrado: " + clinica.addDoador(new Doador(id, nome, idade, tipo, peso, altura)));
+            Console.ReadKey();
         }
 
         public void mCadastrarPaciente()
@@ -158,12 +159,14 @@ namespace Doação_de_sangue_2._0.Painel
             Console.WriteLine("----------------------------------\n");
             //ComunicaoArquivo.leia("registro_doacoes.txt");
             List<string> dados = DadoDoacao.LerDados();
-            
-            foreach(string linha in dados)
+            if(dados != null)
             {
-                Console.WriteLine(linha);
+                foreach (string linha in dados)
+                {
+                    Console.WriteLine(linha);
+                }
             }
-
+            
             Console.WriteLine("\n----------------------------------");
             Console.Write("Digite entre para voltar.");
             Console.ReadLine();

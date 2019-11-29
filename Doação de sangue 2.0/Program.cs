@@ -48,7 +48,7 @@ namespace Doação_de_sangue_2._0
                     programa();
                     break;
                 case 6:
-                    tl.mRealizaDoacao();
+                    tl.imprimirDoaçoes();
                     programa();
                     break;
                 case 7:
