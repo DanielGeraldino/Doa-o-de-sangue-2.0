@@ -36,7 +36,7 @@ namespace Doação_de_sangue_2._0.Entidades
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("ADD: " + e.Message);
                 return false;
             }
             
@@ -63,6 +63,9 @@ namespace Doação_de_sangue_2._0.Entidades
                 Doador doador = doadores.Find(x => x.getId() == idDoador);
                 Paciente paciente = pacientes.Find(x => x.getId() == idPaciente);
 
+                Console.WriteLine(doador.getNome());
+                Console.WriteLine(paciente.getNome());
+
                 if (Paciente.compatibilidadeDeSangue(doador.getSangue(), paciente.getSangue()))
                 {
 
@@ -80,7 +83,7 @@ namespace Doação_de_sangue_2._0.Entidades
 
             } catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Doaçao: " + e.Message);
                 /*string texto = $"Sangue do {doador.getNome()}(Tipo: {doador.getSangue()}) não pode ser doado para {paciente.getNome()}(tipo: {paciente.getSangue()})";
 
                 DadoDoacao.SalvarDado(paciente, doador, texto);*/

@@ -65,7 +65,9 @@ namespace Doação_de_sangue_2._0.Painel
 
             Console.WriteLine("----------------------------------");
 
-            Console.WriteLine("\nDoador cadastrado: " + clinica.addDoador(new Doador(id, nome, idade, tipo, peso, altura)));
+            bool teste = clinica.addDoador(new Doador(id, nome, idade, tipo, peso, altura));
+
+            Console.WriteLine("\nDoador cadastrado: " + teste);
             Console.ReadKey();
         }
 
@@ -109,9 +111,9 @@ namespace Doação_de_sangue_2._0.Painel
             Console.Write("Digite o codigo doador: ");
             string codigoDoador = Console.ReadLine();
             Console.Write("Digite o codigo recptor: ");
-            string codigoRecptor = Console.ReadLine();
+            string codigoPaciente = Console.ReadLine();
 
-            Console.WriteLine("Doação realizada: " + clinica.doarSangue(codigoDoador, codigoRecptor));
+            Console.WriteLine("Doação realizada: " + clinica.doarSangue(codigoPaciente, codigoDoador));
 
             Console.WriteLine("----------------------------------");
             Console.WriteLine("Utilize a função 6 para analisar os registros.");
@@ -124,11 +126,18 @@ namespace Doação_de_sangue_2._0.Painel
             Console.Clear();
             Console.WriteLine("----------------------------------");
             List<Doador> doadores = clinica.listaDoadores();
-
-            foreach (var d in doadores)
+            
+            if(doadores != null)
             {
-                string doador = $"Doador: {d.getNome()}, Idade: {d.getIdade()}, Sangue: {d.getSangue()}";
-                Console.WriteLine(doador);
+                foreach (var d in doadores)
+                {
+                    string doador = $"ID: {d.getId()}, Doador: {d.getNome()}, Idade: {d.getIdade()}, Sangue: {d.getSangue()}";
+                    Console.WriteLine(doador);
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nLista de pacientes esta vazia.\n");
             }
 
             Console.WriteLine("----------------------------------");
@@ -142,12 +151,18 @@ namespace Doação_de_sangue_2._0.Painel
             Console.WriteLine("----------------------------------");
             List<Paciente> pacientes = clinica.listaPacientes();
 
-            foreach (var d in pacientes)
+            if(pacientes != null)
             {
-                string paciente = $"Paciente: {d.getNome()}, Idade: {d.getIdade()}, Sangue: {d.getSangue()}";
-                Console.WriteLine(paciente);
+                foreach (var d in pacientes)
+                {
+                    string paciente = $"ID: {d.getId()} Paciente: {d.getNome()}, Idade: {d.getIdade()}, Sangue: {d.getSangue()}";
+                    Console.WriteLine(paciente);
+                }
+            } else
+            {
+                Console.WriteLine("\nLista de pacientes esta vazia.\n");
             }
-
+            
             Console.WriteLine("----------------------------------");
             Console.Write("Digite entre para voltar.");
             Console.ReadLine();

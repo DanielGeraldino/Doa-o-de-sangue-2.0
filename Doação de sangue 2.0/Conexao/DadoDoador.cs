@@ -49,7 +49,7 @@ namespace Doação_de_sangue_2._0.Conexao
                 if (!File.Exists(DADOS_DOADOR))
                 {
                     Directory.CreateDirectory(PASTA_DADOS);
-                    File.Create(DADOS_DOADOR).Close();
+                    File.CreateText(DADOS_DOADOR).Close();
                 }
                 if (p != null)
                 {
