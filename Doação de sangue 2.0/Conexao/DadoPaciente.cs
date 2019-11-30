@@ -30,6 +30,10 @@ namespace Doação_de_sangue_2._0.Conexao
 
                     return dadosPacientes;
                 }
+                else
+                {
+                    SalvarDado(null);
+                }
 
                 throw new Exception("Nenhum paciente encontrado.");
             } catch(Exception e)

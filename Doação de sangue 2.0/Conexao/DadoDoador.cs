@@ -29,6 +29,9 @@ namespace Doação_de_sangue_2._0.Conexao
                         .ToList();
 
                     return dadosDoador;
+                } else
+                {
+                    SalvarDado(null);
                 }
 
                 throw new Exception("Nenhum doador encontrado.");

@@ -22,7 +22,7 @@ namespace Doação_de_sangue_2._0.Entidades
             this.peso = peso;
             this.altura = altura;
         }
-
+        
         public string getId()
         {
             return this.id;

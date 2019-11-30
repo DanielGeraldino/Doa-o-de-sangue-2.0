@@ -22,9 +22,9 @@ namespace Doação_de_sangue_2._0.Painel
             Console.Clear();
             Console.WriteLine("----------------------------------");
             Console.WriteLine("[1] - Cadastrar doador");
-            Console.WriteLine("[2] - Cadastrar receptor");
+            Console.WriteLine("[2] - Cadastrar paciente");
             Console.WriteLine("[3] - Realiza doação");
-            Console.WriteLine("[4] - Imprimir recptores na fila");
+            Console.WriteLine("[4] - Imprimir pacientes na fila");
             Console.WriteLine("[5] - Imprimir doadores na fila");
             Console.WriteLine("[6] - Imprimir registros de doações");
             Console.WriteLine("[7] - Deseja sair\n");
@@ -51,7 +51,7 @@ namespace Doação_de_sangue_2._0.Painel
             string nome = Console.ReadLine();
 
             Console.Write("Digite o tipo sanguineo(exemplo A+): ");
-            string tipo = Console.ReadLine();
+            string tipo = Console.ReadLine().ToUpper();
 
             Console.Write("Digite a idade: ");
             int idade = int.Parse(Console.ReadLine());
@@ -84,7 +84,7 @@ namespace Doação_de_sangue_2._0.Painel
             string nome = Console.ReadLine();
 
             Console.Write("Digite o tipo sanguineo(exemplo A+): ");
-            string tipo = Console.ReadLine();
+            string tipo = Console.ReadLine().ToUpper();
 
             Console.Write("Digite a idade: ");
             int idade = int.Parse(Console.ReadLine());

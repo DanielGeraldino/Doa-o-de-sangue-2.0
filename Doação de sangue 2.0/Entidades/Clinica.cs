@@ -26,8 +26,9 @@ namespace Doação_de_sangue_2._0.Entidades
             {
                 if (d.podeDoar())
                 {
-                    DadoDoador.SalvarDado(d);
                     doadores.Add(d);
+                    DadoDoador.SalvarDado(d);
+                    
                     return true;
                 } else
                 {
@@ -44,10 +45,11 @@ namespace Doação_de_sangue_2._0.Entidades
 
         public bool addPaciente(Paciente p)
         {
-            if(p != null)
+            if(p != null && TiposSangues.validaTipo(p.getSangue()))
             {
-                DadoPaciente.SalvarDado(p);
                 pacientes.Add(p);
+                DadoPaciente.SalvarDado(p);
+                
                 return true;
             } 
             else
