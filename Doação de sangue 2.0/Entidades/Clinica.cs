@@ -65,30 +65,45 @@ namespace Doação_de_sangue_2._0.Entidades
                 Doador doador = doadores.Find(x => x.getId() == idDoador);
                 Paciente paciente = pacientes.Find(x => x.getId() == idPaciente);
 
-                Console.WriteLine(doador.getNome());
-                Console.WriteLine(paciente.getNome());
-
-                if (Paciente.compatibilidadeDeSangue(doador.getSangue(), paciente.getSangue()))
+                if(doador != null)
                 {
+                    if(paciente != null)
+                    {
+                        if (Paciente.compatibilidadeDeSangue(doador.getSangue(), paciente.getSangue()))
+                        {
 
-                    doadores.Remove(doador);
-                    pacientes.Remove(paciente);
+                            Console.WriteLine("\nDoador: " + doador.getNome());
+                            Console.WriteLine("Paciente: " + paciente.getNome());
 
-                    string texto = $"Sangue do {doador.getNome()}(Tipo: {doador.getSangue()}) doado para {paciente.getNome()}(tipo: {paciente.getSangue()})";
+                            doadores.Remove(doador);
+                            pacientes.Remove(paciente);
 
-                    DadoDoacao.SalvarDado(paciente, doador, texto);
+                            string texto = $"Sangue do {doador.getNome()}(Tipo: {doador.getSangue()}) doado para {paciente.getNome()}(tipo: {paciente.getSangue()})";
 
-                    return true;
+                            DadoDoacao.SalvarDado(paciente, doador, texto);
+
+                            return true;
+                        }
+                        else
+                        {
+                            throw new ClinicaException("Sangue incompatíveis!");
+                        }
+                    } 
+                    else
+                    {
+                        throw new ClinicaException("Codigo do paciente invalido!");
+                    }
+                } 
+                else
+                {
+                    throw new ClinicaException("Codigo do doador invalido!");
                 }
-
-                throw new ClinicaException("Sangue incompatíveis!");
-
-            } catch(Exception e)
+            }
+            
+            catch(Exception e)
             {
                 Console.WriteLine("Doaçao: " + e.Message);
-                /*string texto = $"Sangue do {doador.getNome()}(Tipo: {doador.getSangue()}) não pode ser doado para {paciente.getNome()}(tipo: {paciente.getSangue()})";
-
-                DadoDoacao.SalvarDado(paciente, doador, texto);*/
+                
                 return false;
             }
                                     
@@ -102,6 +117,12 @@ namespace Doação_de_sangue_2._0.Entidades
         public List<Doador> listaDoadores()
         {
             return doadores;
+        }
+
+        public void salvarDados()
+        {
+            DadoDoador.EditarDado(listaDoadores());
+            DadoPaciente.EditarDado(listaPacientes());
         }
     }
 }

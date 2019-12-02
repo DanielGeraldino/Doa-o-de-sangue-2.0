@@ -12,9 +12,21 @@ namespace Doação_de_sangue_2._0.Conexao
         private static string PASTA_DADOS = ".\\DADOS\\";
         private static string DADOS_DOADOR = ".\\DADOS\\DOADOR.CSV";
 
-        public static void EditarDado(Doador p)
+        public static void EditarDado(List<Doador> dList)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using(StreamWriter sw = new StreamWriter(DADOS_DOADOR))
+                {
+                    foreach(Doador d in dList)
+                    {
+                        sw.WriteLine($"{d.getId()};{d.getNome()};{d.getIdade()};{d.getSangue()};{d.getPeso()};{d.getAltura()}");
+                    }
+                }
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public static List<Doador> LerDados()

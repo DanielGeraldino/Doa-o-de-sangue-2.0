@@ -53,6 +53,7 @@ namespace Doação_de_sangue_2._0
                     break;
                 case 7:
                     Console.Clear();
+                    c.salvarDados();
                     Environment.Exit(1);
                     break;
                 default:
