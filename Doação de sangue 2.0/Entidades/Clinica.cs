@@ -42,6 +42,7 @@ namespace Doação_de_sangue_2._0.Entidades
                 }
             } catch(ClinicaException e)
             {
+                Console.WriteLine(e.Message);
                 return false;
             }
             
@@ -52,7 +53,10 @@ namespace Doação_de_sangue_2._0.Entidades
         {
             try
             {
-                if (d.podeDoar() && validarId(d.getId()))
+                if (d != null &&
+                    d.podeDoar() && 
+                    TiposSangues.validaTipo(d.getSangue()) && 
+                    validarId(d.getId()))
                 {
                     doadores.Add(d);
                     DadoDoador.SalvarDado(d);
@@ -65,7 +69,7 @@ namespace Doação_de_sangue_2._0.Entidades
             }
             catch(Exception e)
             {
-                Console.WriteLine("ADD: " + e.Message);
+                Console.WriteLine(e.Message);
                 return false;
             }
             
@@ -73,15 +77,25 @@ namespace Doação_de_sangue_2._0.Entidades
 
         public bool addPaciente(Paciente p)
         {
-            if(p != null && TiposSangues.validaTipo(p.getSangue()))
+            try
             {
-                pacientes.Add(p);
-                DadoPaciente.SalvarDado(p);
-                
-                return true;
-            } 
-            else
+                if (p != null &&
+                TiposSangues.validaTipo(p.getSangue()) &&
+                validarId(p.getId()))
+                {
+                    pacientes.Add(p);
+                    DadoPaciente.SalvarDado(p);
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return false;
             }
         }

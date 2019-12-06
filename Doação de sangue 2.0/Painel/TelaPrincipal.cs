@@ -90,6 +90,13 @@ namespace Doação_de_sangue_2._0.Painel
             } catch (FormatException e)
             {
                 Console.WriteLine("Digite um valor numerico valido!");
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.ReadKey();
             }
             
         }
@@ -134,8 +141,11 @@ namespace Doação_de_sangue_2._0.Painel
             } catch(Exception e)
             {
                 Console.WriteLine(e.Message);
+            } finally
+            {
+                Console.ReadKey();
             }
-            
+
         }
 
         public void mRealizaDoacao()
@@ -164,7 +174,11 @@ namespace Doação_de_sangue_2._0.Painel
             {
                 Console.WriteLine(e.Message);
             }
-            
+            finally
+            {
+                Console.ReadKey();
+            }
+
         }
 
         public void mImprimirDoadores()
