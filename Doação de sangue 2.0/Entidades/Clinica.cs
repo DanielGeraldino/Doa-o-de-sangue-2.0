@@ -20,11 +20,39 @@ namespace Doação_de_sangue_2._0.Entidades
             pacientes = DadoPaciente.LerDados();
         }
 
+        private bool validarId(string id)
+        {
+            try
+            {
+                if (!(doadores.Find(x => x.getId() == id) != null))
+                {
+                    if (!(pacientes.Find(x => x.getId() == id) != null))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        throw new ClinicaException("O id do doador já existe na base de dado!");
+                    }
+
+                }
+                else
+                {
+                    throw new ClinicaException("O id do doador já existe na base de dado!");
+                }
+            } catch(ClinicaException e)
+            {
+                return false;
+            }
+            
+            
+        }
+
         public bool addDoador(Doador d)
         {
             try
             {
-                if (d.podeDoar())
+                if (d.podeDoar() && validarId(d.getId()))
                 {
                     doadores.Add(d);
                     DadoDoador.SalvarDado(d);

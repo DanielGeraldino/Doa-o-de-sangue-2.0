@@ -25,41 +25,49 @@ namespace Doação_de_sangue_2._0
         {
             int escolha = tl.menuPrincipal();
 
-            switch (escolha)
+            if(escolha == -1)
             {
-                case 1:
-                    tl.mCadastrarDoador();
-                    programa();
-                    break;
-                case 2:
-                    tl.mCadastrarPaciente();
-                    programa();
-                    break;
-                case 3:
-                    tl.mRealizaDoacao();
-                    programa();
-                    break;
-                case 4:
-                    tl.mImprimirPacientes();
-                    programa();
-                    break;
-                case 5:
-                    tl.mImprimirDoadores();
-                    programa();
-                    break;
-                case 6:
-                    tl.imprimirDoaçoes();
-                    programa();
-                    break;
-                case 7:
-                    Console.Clear();
-                    c.salvarDados();
-                    Environment.Exit(1);
-                    break;
-                default:
-                    programa();
-                    break;
+                Console.ReadKey();
+                programa();
+            } else
+            {
+                switch (escolha)
+                {
+                    case 1:
+                        tl.mCadastrarDoador();
+                        programa();
+                        break;
+                    case 2:
+                        tl.mCadastrarPaciente();
+                        programa();
+                        break;
+                    case 3:
+                        tl.mRealizaDoacao();
+                        programa();
+                        break;
+                    case 4:
+                        tl.mImprimirPacientes();
+                        programa();
+                        break;
+                    case 5:
+                        tl.mImprimirDoadores();
+                        programa();
+                        break;
+                    case 6:
+                        tl.imprimirDoaçoes();
+                        programa();
+                        break;
+                    case 7:
+                        Console.Clear();
+                        c.salvarDados();
+                        Environment.Exit(1);
+                        break;
+                    default:
+                        programa();
+                        break;
+                }
             }
+            
         }
     }
 }
